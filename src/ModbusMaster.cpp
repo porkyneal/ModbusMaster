@@ -294,6 +294,14 @@ void ModbusMaster::clearTransmitBuffer()
   }
 }
 
+/**
+ Change the remote modbus slave id.
+ */
+void ModbusMaster::setSlaveId(uint8_t slave_id)
+{
+  this->_u8MBSlave = slave_id;
+}
+
 
 /**
 Modbus function 0x01 Read Coils.
@@ -709,10 +717,8 @@ uint8_t ModbusMaster::ModbusMasterTransaction(uint8_t u8MBFunction)
   {
     _preTransmission();
   }
-  for (i = 0; i < u8ModbusADUSize; i++)
-  {
-    _serial->write(u8ModbusADU[i]);
-  }
+  
+  _serial->write(u8ModbusADU, u8ModbusADUSize);
   
   u8ModbusADUSize = 0;
   _serial->flush();    // flush transmit buffer
