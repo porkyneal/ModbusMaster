@@ -302,7 +302,16 @@ void ModbusMaster::setSlaveId(uint8_t slave_id)
   this->_u8MBSlave = slave_id;
 }
 
+/**
+ Change the modbus timeout
+ */
+void ModbusMaster::void setTimeout(uint16_t newTimeout);
+{
+  this->ku16MBResponseTimeout = newTimeout;
+}
 
+
+void setTimeout(uint16_t);
 /**
 Modbus function 0x01 Read Coils.
 
