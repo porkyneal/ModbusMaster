@@ -202,6 +202,7 @@ class ModbusMaster
     uint8_t available(void);
     uint16_t receive(void);
     void setSlaveId(uint8_t);
+    uint8_t getSlaveId(void);
     void setTimeout(uint16_t);
   
     uint8_t  readCoils(uint16_t, uint16_t);
