@@ -302,6 +302,11 @@ void ModbusMaster::setSlaveId(uint8_t slave_id)
   this->_u8MBSlave = slave_id;
 }
 
+uint8_t ModbusMaster::getSlaveId()
+{
+  return this->_u8MBSlave;
+}
+
 /**
  Change the modbus timeout
  */
